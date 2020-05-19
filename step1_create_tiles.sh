@@ -15,7 +15,7 @@ INTERPOLATE=Nearest
 INDEX_FILE="./index.txt"
 
 INPUT_DIR="./input"
-OUTPUT_DIR="./output_tiles"
+OUTPUT_DIR="./input_tiles"
 
 for OPTION in "$@"; do
   case ${OPTION} in

@@ -4,7 +4,7 @@ shopt -s extglob
 THREADS=4
 
 RESIZE=100%
-OVERDRAW=64
+OVERDRAW=16
 
 FILTER=SincFast
 INTERPOLATE=Bilinear
@@ -89,11 +89,11 @@ while read ENTRY; do
   DIRNAME_HASH=$(echo ${ENTRY} | cut -d':' -f1)
   BASENAME_NO_EXT=$(echo ${ENTRY} | cut -d':' -f2)
 
-  
+
   IMAGE_WIDTH=$(echo ${ENTRY} | cut -d':' -f5)
   IMAGE_HEIGHT=$(echo ${ENTRY} | cut -d':' -f6)
   IMAGE_CHANNELS=$(echo ${ENTRY} | cut -d':' -f4)
-  
+
   COLUMNS=$(echo ${ENTRY} | cut -d':' -f8)
   ROWS=$(echo ${ENTRY} | cut -d':' -f7)
 
@@ -130,7 +130,7 @@ while read ENTRY; do
 
     done
   done
-  
+
   if [ "${ROWS}" -gt "1" ]; then
     BLEND_WIDTH_ARGS="\\( -size ${TILE_WIDTH}x${OVERDRAW_HEIGHT} gradient: -append -rotate 180 \\) -composite -compose multiply"
   fi
